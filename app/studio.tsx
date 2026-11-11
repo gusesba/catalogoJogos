@@ -59,72 +59,6 @@ export {
 
 export const games = [
   {
-    id: "stardew",
-    name: "Stardew Valley",
-    category: "Farm",
-    tag: "Um mundo no seu ritmo",
-    description:
-      "Cultive sua fazenda, conheça novos amigos e encontre um pouquinho de aventura em cada estação.",
-    color: "#b8db84",
-    developer: "ConcernedApe",
-    steam: "413150",
-  },
-  {
-    id: "spire",
-    name: "Slay the Spire",
-    category: "Deckbuilder",
-    tag: "Só mais uma tentativa",
-    description:
-      "Construa um baralho único, descubra relíquias e encare os desafios de uma torre em constante mudança.",
-    color: "#8eb4ee",
-    developer: "Mega Crit",
-    steam: "646570",
-  },
-  {
-    id: "shapez",
-    name: "shapez 2",
-    category: "Tycoon",
-    tag: "Pense. Construa. Automatize.",
-    description:
-      "Transforme pequenas ideias em fábricas imensas e descubra a satisfação de uma máquina funcionando perfeitamente.",
-    color: "#c5b3ef",
-    developer: "tobspr Games",
-    steam: "2162800",
-  },
-  {
-    id: "rusty",
-    name: "Rusty’s Retirement",
-    category: "Idle",
-    tag: "Uma pequena pausa verde",
-    description:
-      "Uma fazendinha automatizada, um robô simpático e a tranquilidade de ver as coisas crescerem.",
-    color: "#e8c589",
-    developer: "Mister Morris Games",
-    steam: "2666510",
-  },
-  {
-    id: "cookie",
-    name: "Cookie Clicker",
-    category: "Clicker",
-    tag: "Pequenos cliques, grandes planos",
-    description:
-      "Comece com um biscoito e faça sua produção crescer, um clique e uma melhoria de cada vez.",
-    color: "#dfac85",
-    developer: "Orteil / DashNet",
-    steam: "1454400",
-  },
-  {
-    id: "balatro",
-    name: "Balatro",
-    category: "Deckbuilder",
-    tag: "Jogue suas próprias regras",
-    description:
-      "Combine cartas, descubra curingas e transforme uma boa mão em uma combinação surpreendente.",
-    color: "#e88788",
-    developer: "LocalThunk",
-    steam: "2379780",
-  },
-  {
     id: "mega-masmorra",
     name: "Color Knight · Mega Masmorra",
     category: "Idle",
@@ -164,9 +98,6 @@ export type Game = (typeof games)[number];
 export const categories = [
   "Todos",
   "Idle",
-  "Clicker",
-  "Tycoon",
-  "Deckbuilder",
   "Farm",
   "RPG",
 ];
@@ -184,7 +115,7 @@ const initial: Profile = {
   coins: 1240,
   xp: 720,
   favorites: [],
-  visited: ["stardew", "cookie"],
+  visited: [],
   claimed: [],
   redeemed: [],
   invited: false,
@@ -235,7 +166,15 @@ export function StudioProvider({
           ) &&
           typeof p.invited === "boolean"
         )
-          setProfile(p);
+          setProfile({
+            ...p,
+            favorites: p.favorites.filter((id: string) =>
+              games.some((g) => g.id === id),
+            ),
+            visited: p.visited.filter((id: string) =>
+              games.some((g) => g.id === id),
+            ),
+          });
       }
     } catch {
       /* A experiência continua quando o armazenamento está indisponível. */
@@ -455,7 +394,7 @@ export function GameCard({
         <div className="game-meta">
           <span>{game.category}</span>
           <span>
-            <Monitor size={12} /> {game.url ? "Jogo no navegador" : "Referência"}
+            <Monitor size={12} /> Jogo no navegador
           </span>
         </div>
         <button className="game-title" onClick={() => openGame(game)}>
@@ -870,14 +809,12 @@ function Dialogs({ closeGame }: { closeGame: () => void }) {
           />
           <div className="dialog-content">
             <p className="eyebrow">
-              {selected.category} · {selected.url ? "JOGO NO NAVEGADOR" : "JOGO DE REFERÊNCIA"}
+              {selected.category} · JOGO NO NAVEGADOR
             </p>
             <h2>{selected.name}</h2>
             <p>{selected.description}</p>
             <div className="detail-credit">
-              {selected.imageCredit || (selected.url
-                ? "Imagem capturada diretamente no site do jogo."
-                : `Criado por ${selected.developer}. Arte utilizada como placeholder.`)}
+              {selected.imageCredit || "Imagem capturada diretamente no site do jogo."}
             </div>
             <div className="demo-explainer">
               <Sparkles size={19} />
@@ -915,11 +852,11 @@ function Dialogs({ closeGame }: { closeGame: () => void }) {
               </button>
               <a
                 className="text-link"
-                href={selected.url || `https://store.steampowered.com/app/${selected.steam}/`}
+                href={selected.url}
                 target="_blank"
                 rel="noreferrer"
               >
-                {selected.url ? "Jogar agora" : "Conhecer o jogo real"}
+                Jogar agora
                 <ArrowRight size={16} />
               </a>
             </div>
@@ -1224,7 +1161,7 @@ function Dialogs({ closeGame }: { closeGame: () => void }) {
                   {games.map((g) => (
                     <li key={g.id}>
                       <a
-                        href={g.url || `https://store.steampowered.com/app/${g.steam}/`}
+                        href={g.url}
                         target="_blank"
                         rel="noreferrer"
                       >
@@ -1236,7 +1173,7 @@ function Dialogs({ closeGame }: { closeGame: () => void }) {
                   ))}
                 </ul>
                 <p className="fine-print">
-                  Imagens da loja Steam, capturas do site do jogo e banners fornecidos. Os direitos pertencem aos respectivos
+                  Capturas do site do jogo e banners fornecidos. Os direitos pertencem aos respectivos
                   criadores. Nenhum desses jogos pertence ao estúdio proposto.
                 </p>
               </>

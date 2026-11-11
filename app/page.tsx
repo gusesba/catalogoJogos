@@ -71,8 +71,8 @@ function Nexo() {
           </section>
           <section className="nexo-feature">
             <img
-              src="/images/stardew-hero.jpg"
-              alt="Stardew Valley, escolha da semana"
+              src="/images/slimefarm.png"
+              alt="Slime Farm, escolha da semana"
             />
             <div className="nexo-feature-shade" />
             <div className="nexo-feature-copy">
@@ -84,8 +84,8 @@ function Nexo() {
                 <br />
                 lugar favorito.
               </h2>
-              <p>Stardew Valley · Farm</p>
-              <PlayButton>Descobrir esse mundo</PlayButton>
+              <p>Slime Farm · Farm</p>
+              <PlayButton game={games[2]}>Descobrir esse mundo</PlayButton>
             </div>
             <div className="nexo-feature-number">
               01<span>COLEÇÃO NEXO</span>
@@ -96,7 +96,7 @@ function Nexo() {
               <Gamepad2 size={18} />
               <b>Seu último checkpoint</b>
             </span>
-            {[games[0], games[4]].map((g) => (
+            {games.slice(0, 2).map((g) => (
               <button key={g.id} onClick={() => openGame(g)}>
                 <img src={`/images/${g.id}.jpg`} alt="" />
                 <span>
