@@ -93,6 +93,19 @@ export const games = [
     image: "/images/slimefarm.png",
     imageCredit: "Banner fornecido pelo usuário.",
   },
+  {
+    id: "mpsfighter",
+    name: "MeMePS Fighter",
+    category: "Luta",
+    tag: "Escolha seu lutador. Entre na arena.",
+    description:
+      "Escolha seu lutador e entre em combates de fliperama em pixel art. Enfrente a CPU ou desafie outro jogador no mesmo teclado.",
+    color: "#f3bf49",
+    developer: "MeMePS Fighter",
+    url: "https://mpsfighter.gusesba.com/",
+    image: "/images/mpsfighter.png",
+    imageCredit: "Arte gerada com IA com base nos personagens e no estilo visual do jogo.",
+  },
 ];
 export type Game = (typeof games)[number];
 export const categories = [
@@ -100,6 +113,7 @@ export const categories = [
   "Idle",
   "Farm",
   "RPG",
+  "Luta",
 ];
 type Profile = {
   coins: number;

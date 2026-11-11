@@ -11,7 +11,9 @@ As capas e artes dos jogos abaixo foram capturadas diretamente em seus sites:
 
 Essas imagens são referências para a avaliação de UI/UX. Seus direitos pertencem aos respectivos titulares. Nenhum jogo listado é uma criação do estúdio fictício desta proposta.
 
-O banner de [Slime Farm](https://slimefarm.gusesba.com) foi fornecido pelo usuário e é utilizado no destaque, no card e nos detalhes do jogo, em `public/images/slimefarm.png`.
+O banner de [Slime Farm](https://slimefarm.gusesba.com) foi fornecido pelo usuário e é utilizado no card e nos detalhes do jogo, em `public/images/slimefarm.png`.
+
+A arte de [MeMePS Fighter](https://mpsfighter.gusesba.com/) foi gerada com IA a partir da observação da seleção de lutadores, inspirada nos personagens Altair e Estevam e na pixel art do jogo. É utilizada no destaque, no card e nos detalhes, em `public/images/mpsfighter.png`.
 
 ## Fontes
 

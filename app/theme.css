@@ -192,6 +192,8 @@
   inset: 0;
   height: 100%;
   object-position: 70% center;
+  image-rendering: crisp-edges;
+  filter: contrast(1.12) saturate(1.15);
 }
 .nexo-feature-shade {
   position: absolute;
@@ -203,6 +205,11 @@
 .nexo-feature-copy {
   position: relative;
   padding: 27px 30px;
+}
+.nexo-feature-copy-art {
+  position: absolute;
+  bottom: 0;
+  left: 0;
 }
 .nexo-feature-pill {
   display: inline-flex;

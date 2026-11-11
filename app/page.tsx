@@ -71,21 +71,12 @@ function Nexo() {
           </section>
           <section className="nexo-feature">
             <img
-              src="/images/slimefarm.png"
-              alt="Slime Farm, escolha da semana"
+              src="/images/mpsfighter.png"
+              alt="Altair e Estevam em uma arena de MeMePS Fighter, escolha da semana"
             />
-            <div className="nexo-feature-shade" />
-            <div className="nexo-feature-copy">
-              <span className="nexo-feature-pill">
-                <span /> ESCOLHA DA SEMANA
-              </span>
-              <h2>
-                Seu novo
-                <br />
-                lugar favorito.
-              </h2>
-              <p>Slime Farm · Farm</p>
-              <PlayButton game={games[2]}>Descobrir esse mundo</PlayButton>
+            <div className="nexo-feature-copy nexo-feature-copy-art">
+              <h2 className="sr-only">MeMePS Fighter</h2>
+              <PlayButton game={games[3]}>Entrar na arena</PlayButton>
             </div>
             <div className="nexo-feature-number">
               01<span>COLEÇÃO NEXO</span>
