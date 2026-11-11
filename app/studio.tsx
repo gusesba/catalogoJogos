@@ -146,6 +146,19 @@ export const games = [
     developer: "UMBRA",
     url: "https://umbra.gusesba.com",
   },
+  {
+    id: "slimefarm",
+    name: "Slime Farm",
+    category: "Farm",
+    tag: "Plante, colha e faça amigos",
+    description:
+      "Cultive sua fazenda, colha suas plantações e faça amigos. Jogue de graça no navegador.",
+    color: "#74d59f",
+    developer: "Slime Farm",
+    url: "https://slimefarm.gusesba.com",
+    image: "/images/slimefarm.png",
+    imageCredit: "Banner fornecido pelo usuário.",
+  },
 ];
 export type Game = (typeof games)[number];
 export const categories = [
@@ -425,7 +438,7 @@ export function GameCard({
           aria-label={`Conhecer ${game.name}`}
         >
           <img
-            src={`/images/${game.id}.jpg`}
+            src={game.image || `/images/${game.id}.jpg`}
             alt={`Arte de ${game.name}`}
             loading="lazy"
           />
@@ -851,8 +864,9 @@ function Dialogs({ closeGame }: { closeGame: () => void }) {
         <div className="game-detail">
           <img
             className="detail-art"
-            src={`/images/${selected.id}-hero.jpg`}
+            src={selected.image || `/images/${selected.id}-hero.jpg`}
             alt={`Arte de ${selected.name}`}
+            style={selected.image ? { height: "auto" } : undefined}
           />
           <div className="dialog-content">
             <p className="eyebrow">
@@ -861,9 +875,9 @@ function Dialogs({ closeGame }: { closeGame: () => void }) {
             <h2>{selected.name}</h2>
             <p>{selected.description}</p>
             <div className="detail-credit">
-              {selected.url
+              {selected.imageCredit || (selected.url
                 ? "Imagem capturada diretamente no site do jogo."
-                : `Criado por ${selected.developer}. Arte utilizada como placeholder.`}
+                : `Criado por ${selected.developer}. Arte utilizada como placeholder.`)}
             </div>
             <div className="demo-explainer">
               <Sparkles size={19} />
@@ -1222,7 +1236,7 @@ function Dialogs({ closeGame }: { closeGame: () => void }) {
                   ))}
                 </ul>
                 <p className="fine-print">
-                  Imagens da loja Steam e capturas do site do jogo. Os direitos pertencem aos respectivos
+                  Imagens da loja Steam, capturas do site do jogo e banners fornecidos. Os direitos pertencem aos respectivos
                   criadores. Nenhum desses jogos pertence ao estúdio proposto.
                 </p>
               </>

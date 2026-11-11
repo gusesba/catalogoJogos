@@ -21,6 +21,8 @@ A imagem principal de Stardew Valley é a [captura oficial da fazenda](https://s
 
 Essas imagens são referências para a avaliação de UI/UX. Seus direitos pertencem aos respectivos titulares. Nenhum jogo listado é uma criação do estúdio fictício desta proposta.
 
+O banner de [Slime Farm](https://slimefarm.gusesba.com) foi fornecido pelo usuário e é utilizado no card e nos detalhes do jogo, em `public/images/slimefarm.png`.
+
 ## Fontes
 
 - [DM Sans](https://github.com/google/fonts/tree/main/ofl/dmsans) — SIL Open Font License.
