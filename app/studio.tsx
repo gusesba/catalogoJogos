@@ -133,7 +133,7 @@ export const games = [
       "Explore a masmorra em combates automáticos, melhore seus atributos e descubra personagens, pets e artefatos para ir cada vez mais longe.",
     color: "#b8c778",
     developer: "Color Knight",
-    url: "https://mega-masmorra-idle.stonysmile64.chatgpt.site/",
+    url: "https://color-knight.gusesba.com",
   },
   {
     id: "umbra",
